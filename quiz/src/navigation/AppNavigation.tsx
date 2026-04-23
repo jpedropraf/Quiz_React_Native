@@ -1,29 +1,34 @@
 // Imports
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator  } from "@react-navigation/native-stack";
+
+// Layout
+import { AppLayout } from "@layouts/AppLayout";
 
 // Screens
 import { EndScreen } from "@screens/EndScreen/EndScreen";
 import { StartScreen } from "@screens/StartScreen/StartScreen";
 
+// Types
+import { RootStackParamList } from "@app-types/RootStackParamList";
 
 // Routes
 import { ROUTES } from "./routes";
 import { GameNavigation } from "./GameNavigation";
 
 
-
-
-const { Navigator, Screen } = createStackNavigator();
+const Stack = createNativeStackNavigator <RootStackParamList>();
 
 export function AppNavigation() {
     return (
-        <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false }}>
-                <Screen name={ROUTES.START} component={StartScreen} />
-                <Screen name={ROUTES.GAME} component={GameNavigation} />
-                <Screen name={ROUTES.END} component={EndScreen} />
-            </Navigator>
-        </NavigationContainer>
+        <AppLayout>
+            <NavigationContainer>
+                <Stack.Navigator screenOptions={{ headerShown: false }}>
+                    <Stack.Screen name={ROUTES.START} component={StartScreen} />
+                    <Stack.Screen name={ROUTES.GAME} component={GameNavigation} />
+                    <Stack.Screen name={ROUTES.END} component={EndScreen} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </AppLayout>
     );
 }
