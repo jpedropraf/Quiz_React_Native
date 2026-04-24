@@ -1,6 +1,6 @@
 // Imports
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Screens
 import { GameScreen } from "@screens/GameScreen/GameScreen";
@@ -11,15 +11,13 @@ import { ROUTES } from "./routes";
 
 
 
-const { Navigator, Screen } = createStackNavigator();
+const { Navigator, Screen } = createNativeStackNavigator();
 
 export function GameNavigation() {
     return (
-        <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false }}>
-                <Screen name={ROUTES.GAME_MAIN} component={GameScreen} />
-                <Screen name={ROUTES.GAME_RESULT} component={EndScreen} />
-            </Navigator>
-        </NavigationContainer>
+        <Navigator screenOptions={{ headerShown: false }}>
+            <Screen name={ROUTES.GAME_MAIN} component={GameScreen} />
+            <Screen name={ROUTES.GAME_RESULT} component={EndScreen} />
+        </Navigator>
     );
 }

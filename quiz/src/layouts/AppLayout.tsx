@@ -1,5 +1,8 @@
+import React from "react";
 import { View } from "react-native";
 
+// Styles
+import { styles } from "./styles/styles";
 
 type Props = {
     children: React.ReactNode;
@@ -7,7 +10,7 @@ type Props = {
 
 export function AppLayout({ children }: Props) {
     return(
-        <View>
+        <View style={styles.container}>
             { children }
         </View>
     );
