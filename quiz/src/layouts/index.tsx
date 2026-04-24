@@ -1,8 +1,10 @@
+// Por hora está em desuso
+
 import React from "react";
 import { View } from "react-native";
 
 // Styles
-import { styles } from "./styles/styles";
+import { styles } from "./AppLayoutStyle";
 
 type Props = {
     children: React.ReactNode;

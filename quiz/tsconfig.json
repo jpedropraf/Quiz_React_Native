@@ -6,12 +6,14 @@
     "paths": {
       "@app-components/*": ["./src/components/*"],
       "@app-data/*": ["./src/data/*"],
+      "@app-hooks/*": ["./src/hooks/*"],
       "@app-layouts/*": ["./src/layouts/*"],
       "@app-navigation/*": ["./src/navigation/*"],
       "@app-screens/*": ["./src/screens/*"],
+      "@app-styles/*": ["./src/styles/*"],
+      "@app-themes/*": ["./src/themes/*"],
       "@app-types/*": ["./src/types/*"],
-
-      "@app-styles/*": ["./src/screens/styles/*"],
+      "@app-utils/*": ["./src/utils/*"],
     }
   }
 }
