@@ -1,15 +1,21 @@
 // Imports
+import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { RootStackParamList } from "@app-types/RootStackParamList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+// Styles
+import { globalStyle } from "@app-styles/globalStyle";
 
-type Props = NativeStackScreenProps<RootStackParamList, "start">;
+// Routes
+import { ROUTES } from '@app-navigation/routes';
+
+type Props = NativeStackScreenProps<RootStackParamList, typeof ROUTES.START>;
 
 export function StartScreen({ navigation }: Props) {
     return (
-        <View>
-            <Text>StartScreen</Text>
+        <View style={globalStyle.container}>
+            <Text style={globalStyle.teste}>StartScreen</Text>
 
             <Pressable onPress={() => navigation.navigate("game")}>
                 <Text>

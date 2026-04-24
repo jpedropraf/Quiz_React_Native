@@ -4,12 +4,14 @@
     "jsx": "react",
     "strict": true,
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@data/*": ["./src/data/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@navigation/*": ["./src/navigation/*"],
-      "@screens/*": ["./src/screens/*"],
+      "@app-components/*": ["./src/components/*"],
+      "@app-data/*": ["./src/data/*"],
+      "@app-layouts/*": ["./src/layouts/*"],
+      "@app-navigation/*": ["./src/navigation/*"],
+      "@app-screens/*": ["./src/screens/*"],
       "@app-types/*": ["./src/types/*"],
+
+      "@app-styles/*": ["./src/screens/styles/*"],
     }
   }
 }

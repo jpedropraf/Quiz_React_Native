@@ -3,8 +3,8 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Screens
-import { GameScreen } from "@screens/GameScreen/GameScreen";
-import { EndScreen } from "@screens/EndScreen/EndScreen";
+import { GameScreen } from "@app-screens/GameScreen/GameScreen";
+import { EndScreen } from "@app-screens/EndScreen/EndScreen";
 
 // Routes
 import { ROUTES } from "./routes";

@@ -1,4 +1,5 @@
-import { AppNavigation } from "@navigation/AppNavigation";
+import React from "react";
+import { AppNavigation } from "@app-navigation/AppNavigation";
 
 
 
