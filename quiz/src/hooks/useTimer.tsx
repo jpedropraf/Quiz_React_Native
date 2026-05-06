@@ -8,13 +8,10 @@ export function useTimer(initialSeconds: number) {
     useEffect(() => {
         let interval: ReturnType<typeof setInterval> | null = null;
 
-        if (active && seconds !== 0) {
+        if (active) {
             interval = setInterval(() => {
                 setSeconds((prev) => prev + 1);
             }, 1000);
-        } else if (seconds === 0) {
-            setActive(false);
-            clearInterval(interval!);
         }
 
         return () => {
