@@ -5,7 +5,7 @@ import { RootStackParamList } from "@app-types/RootStackParamList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 // Components
-import { AppText, Button, Input, Card } from '@app-components/index';
+import { AppText, Button, Input } from '@app-components/index';
 
 // Layouts
 import { AppLayout } from '@app-layouts/index';
@@ -35,18 +35,6 @@ export function StartScreen({ navigation }: Props) {
                 <View style={styles.content}>
                     <AppText style={styles.title}>Quiz de Geografia</AppText>
                     <AppText style={styles.subtitle}>Teste seus conhecimentos sobre o mundo!</AppText>
-
-                    <Card variant="elevated" style={styles.infoCard}>
-                        <AppText style={styles.infoText}>
-                            Responda 5 perguntas sobre países e bandeiras.
-                        </AppText>
-                        <AppText style={styles.infoText}>
-                            Acompanhe sua pontuação em tempo real.
-                        </AppText>
-                        <AppText style={styles.infoText}>
-                            Busque o melhor resultado.
-                        </AppText>
-                    </Card>
 
                     <View style={styles.formContainer}>
                         <Input

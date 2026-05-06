@@ -49,7 +49,7 @@ export function GameScreen({ route, navigation }: Props) {
 
     useEffect(() => {
         startTimer();
-    }, []);
+    }, [startTimer]);
 
     const currentQuestion = questions[gameState.currentQuestionIndex];
     const isLastQuestion = gameState.currentQuestionIndex === questions.length - 1;

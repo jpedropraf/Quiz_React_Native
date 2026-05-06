@@ -1,5 +1,5 @@
 // Imports
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { RootStackParamList } from "@app-types/RootStackParamList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -9,9 +9,6 @@ import { AppText, Button, Card, Badge } from '@app-components/index';
 
 // Layouts
 import { AppLayout } from '@app-layouts/index';
-
-// Hooks
-import { useScore } from '@app-hooks/useScore';
 
 // Routes
 import { ROUTES } from '@app-navigation/routes';
@@ -23,11 +20,6 @@ type Props = NativeStackScreenProps<RootStackParamList, typeof ROUTES.GAME_RESUL
 
 export function EndScreen({ route, navigation }: Props) {
     const { playerName, score } = route.params;
-    const { addNewScore, sortedScores } = useScore();
-
-    useEffect(() => {
-        addNewScore({ nome: playerName, score });
-    }, []);
 
     const handlePlayAgain = () => {
         navigation.popToTop();
@@ -57,8 +49,6 @@ export function EndScreen({ route, navigation }: Props) {
         messageColor = colors.secondary;
     }
 
-    const playerRank = sortedScores.findIndex(s => s.nome === playerName && s.score === score) + 1 || sortedScores.length;
-
     return (
         <AppLayout>
             <ScrollView contentContainerStyle={styles.container}>
@@ -79,48 +69,6 @@ export function EndScreen({ route, navigation }: Props) {
                             {message}
                         </AppText>
                     </Card>
-
-                    {playerRank <= 3 && (
-                        <Card style={styles.medalCard}>
-                            <AppText style={styles.medalText}>
-                                Você está em #{playerRank} lugar.
-                            </AppText>
-                        </Card>
-                    )}
-
-                    <View style={styles.rankingContainer}>
-                        <AppText style={styles.rankingTitle}>Top 5 pontuações</AppText>
-                        
-                        {sortedScores.length > 0 ? (
-                            <Card style={styles.rankingList}>
-                                {sortedScores.slice(0, 5).map((item, index) => {
-                                    const isCurrentPlayer = item.nome === playerName && item.score === score;
-                                    return (
-                                        <View 
-                                            key={index} 
-                                            style={[
-                                                styles.rankingItem,
-                                                isCurrentPlayer && styles.rankingItemHighlight,
-                                            ]}
-                                        >
-                                            <AppText style={styles.rankingPosition}>
-                                                {`${index + 1}.`}
-                                            </AppText>
-                                            <AppText style={[styles.rankingName, isCurrentPlayer && styles.rankingNameHighlight]}>
-                                                {item.nome}
-                                            </AppText>
-                                            <Badge 
-                                                text={`${item.score}/${totalQuestions}`} 
-                                                variant={isCurrentPlayer ? 'success' : 'info'}
-                                            />
-                                        </View>
-                                    );
-                                })}
-                            </Card>
-                        ) : (
-                            <AppText style={styles.noScores}>Nenhuma pontuação registrada ainda</AppText>
-                        )}
-                    </View>
                 </View>
 
                 <Button
